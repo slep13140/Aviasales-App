@@ -1,0 +1,27 @@
+.container {
+  width: 502px;
+  display: flex;
+  li {
+    width: 168px;
+    height: 50px;
+    border: 1px Solid #dfe5ec;
+    &:first-child,
+    &:last-child {
+      border-radius: 5px;
+    }
+  }
+  button {
+    width: 168px;
+    height: 50px;
+    background-color: #ffffff;
+    color: #4a4a4a;
+    font-family: 'OpenSans-SemiBold', sans-serif;
+    font-size: 12px;
+    line-height: 20px;
+    letter-spacing: 0.5px;
+    &.active {
+      background-color: #2196f3;
+      color: #ffffff;
+    }
+  }
+}

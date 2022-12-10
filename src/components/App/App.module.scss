@@ -1,0 +1,21 @@
+.app-container {
+  width: 576px;
+  background-color: #f3f7fa;
+  margin: auto;
+  @media (min-width: 576px) {
+    width: 960px;
+  }
+}
+.header {
+  display: flex;
+  justify-content: center;
+}
+.main {
+  padding: 0px;
+  display: flex;
+  flex-direction: column;
+  @media (min-width: 576px) {
+    padding: 0px 103px 50px 103px;
+    flex-direction: row;
+  }
+}

@@ -1,0 +1,66 @@
+.container {
+  width: 502px;
+  height: 202px;
+  margin: auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  border: 1px Solid #ffffff;
+  border-radius: 5px;
+  box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.1);
+  label {
+    font-family: 'OpenSans-Regular', sans-serif;
+    font-size: 13px;
+    line-height: 20px;
+    margin-top: 20px;
+    display: flex;
+  }
+  @media (min-width: 576px) {
+    width: 232px;
+    height: 252px;
+    margin-right: 20px;
+    margin-top: 20px;
+    label {
+      margin-top: 10px;
+    }
+  }
+}
+.title {
+  width: 192px;
+  font-size: 12px;
+  line-height: 12px;
+  font-family: 'OpenSans-SemiBold', sans-serif;
+}
+input {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+.checkbox {
+  display: inline-block;
+  height: 20px;
+  width: 20px;
+  border-radius: 2px;
+  background: #fff;
+  border: 2px Solid #9abbce;
+}
+.active {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border-radius: 2px;
+  border: 1px Solid #2196f3;
+  background-image: url('../../image/Shape.svg');
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+}
+.value {
+  width: 112px;
+  height: 20px;
+  margin-left: 10px;
+}
