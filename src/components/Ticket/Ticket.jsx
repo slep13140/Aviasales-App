@@ -13,30 +13,34 @@ function Ticket() {
       </div>
       <div>
         <table className={styles.table}>
-          <tr>
-            <th>MOW – HKT</th>
-            <th>В пути</th>
-            <th>2 ПЕресадки</th>
-          </tr>
-          <tr>
-            <td>10:45 – 08:00</td>
-            <td>21ч 15м</td>
-            <td>HKG, JNB</td>
-          </tr>
+          <thead>
+            <tr>
+              <th>MOW – HKT</th>
+              <th>В пути</th>
+              <th>2 ПЕресадки</th>
+            </tr>
+            <tr>
+              <td>10:45 – 08:00</td>
+              <td>21ч 15м</td>
+              <td>HKG, JNB</td>
+            </tr>
+          </thead>
         </table>
       </div>
       <div>
         <table className={styles.table}>
-          <tr>
-            <th>MOW – HKT</th>
-            <th>В пути</th>
-            <th>1 пересадка</th>
-          </tr>
-          <tr>
-            <td>11:20 – 00:50</td>
-            <td>13ч 30м</td>
-            <td>HKG</td>
-          </tr>
+          <thead>
+            <tr>
+              <th>MOW – HKT</th>
+              <th>В пути</th>
+              <th>1 пересадка</th>
+            </tr>
+            <tr>
+              <td>11:20 – 00:50</td>
+              <td>13ч 30м</td>
+              <td>HKG</td>
+            </tr>
+          </thead>
         </table>
       </div>
     </li>
