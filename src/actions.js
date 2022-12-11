@@ -22,3 +22,18 @@ export function fastest() {
 export function optimal() {
   return { type: 'OPTIMAL_ROUTE' }
 }
+export function showMore() {
+  return { type: 'SHOW_MORE_TICKETS' }
+}
+export function ticketLoad() {
+  return async (dispatch) => {
+    const response = await fetch('https://aviasales-test-api.kata.academy/search')
+    const jsonSearch = await response.json()
+    const respTickets = await fetch(`https://aviasales-test-api.kata.academy/tickets?searchId=${jsonSearch.searchId}`)
+    const jsonData = await respTickets.json()
+    dispatch({
+      type: 'TICKET_LOAD',
+      data: jsonData.tickets,
+    })
+  }
+}

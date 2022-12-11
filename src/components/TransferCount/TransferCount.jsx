@@ -20,9 +20,10 @@ function TransferCount({
 }) {
   const check = `${styles.checkbox}`
   const checkActive = `${styles.active}`
+  const title = 'Количество пересадок'
   return (
     <div className={styles.container}>
-      <div className={styles.title}>Количество пересадок</div>
+      <div className={styles.title}>{title.toUpperCase()}</div>
       <label htmlFor="all">
         <input type="checkbox" id="all" onChange={allTransfer} />
         <span className={transferAllCount ? checkActive : check} aria-hidden="true" />

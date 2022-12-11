@@ -7,6 +7,7 @@ const initialState = {
   lowCostRoute: true,
   fastestRoute: false,
   optimalRoute: false,
+  countTicketVisible: 5,
 }
 const reducer = (state, action) => {
   if (state === undefined) {
@@ -160,6 +161,16 @@ const reducer = (state, action) => {
         }
       }
       return { ...state }
+    case 'SHOW_MORE_TICKETS':
+      return { ...state, countTicketVisible: state.countTicketVisible + 5 }
+    case 'TICKET_LOAD': {
+      const tickets = action.data.map((item) => ({
+        price: item.price,
+        route: item.segments,
+      }))
+      return { ...state, ticketsDate: tickets }
+    }
+
     default:
       return state
   }

@@ -11,6 +11,7 @@ function SortingSelection(props) {
   const buttonSortActive = `${styles.buttonSortActive}`
   const { lowCostRoute, fastestRoute, optimalRoute } = props
   const { lowCost, fastest, optimal } = props
+  const buttonValue = ['Самый дешевый', 'Самый быстрый', 'Оптимальный'].map((item) => item.toUpperCase())
   return (
     <ul className={styles.container}>
       <li>
@@ -20,7 +21,7 @@ function SortingSelection(props) {
           aria-label="Самый дешевый"
           onClick={lowCost}
         >
-          Самый дешевый
+          {buttonValue[0]}
         </button>
       </li>
       <li>
@@ -30,7 +31,7 @@ function SortingSelection(props) {
           aria-label="Самый быстрый"
           onClick={fastest}
         >
-          Самый быстрый
+          {buttonValue[1]}
         </button>
       </li>
       <li>
@@ -40,7 +41,7 @@ function SortingSelection(props) {
           aria-label="Оптимальный"
           onClick={optimal}
         >
-          Оптимальный
+          {buttonValue[2]}
         </button>
       </li>
     </ul>
