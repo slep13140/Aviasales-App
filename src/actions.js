@@ -29,11 +29,29 @@ export function ticketLoad() {
   return async (dispatch) => {
     const response = await fetch('https://aviasales-test-api.kata.academy/search')
     const jsonSearch = await response.json()
-    const respTickets = await fetch(`https://aviasales-test-api.kata.academy/tickets?searchId=${jsonSearch.searchId}`)
-    const jsonData = await respTickets.json()
-    dispatch({
-      type: 'TICKET_LOAD',
-      data: jsonData.tickets,
-    })
+    async function cb() {
+      const respTickets = await fetch(`https://aviasales-test-api.kata.academy/tickets?searchId=${jsonSearch.searchId}`)
+      if (respTickets.status === 502) {
+        await cb()
+      } else if (respTickets.status !== 200) {
+        dispatch({
+          type: 'TICKET_NO_LOAD',
+        })
+        await cb()
+      }
+      const jsonData = await respTickets.json()
+      dispatch({
+        type: 'TICKET_LOAD',
+        data: jsonData.tickets,
+      })
+      if (!jsonData.stop) {
+        cb()
+      } else {
+        dispatch({
+          type: 'TICKET_LOADED',
+        })
+      }
+    }
+    cb()
   }
 }

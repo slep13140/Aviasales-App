@@ -8,6 +8,9 @@ const initialState = {
   fastestRoute: false,
   optimalRoute: false,
   countTicketVisible: 5,
+  loading: true,
+  error: false,
+  ticketsData: [],
 }
 const reducer = (state, action) => {
   if (state === undefined) {
@@ -168,8 +171,17 @@ const reducer = (state, action) => {
         price: item.price,
         route: item.segments,
       }))
-      return { ...state, ticketsDate: tickets }
+      const newTickets = [...state.ticketsData, ...tickets]
+      return {
+        ...state,
+        error: false,
+        ticketsData: newTickets,
+      }
     }
+    case 'TICKET_NO_LOAD':
+      return { ...state, error: true }
+    case 'TICKET_LOADED':
+      return { ...state, loading: false }
 
     default:
       return state
