@@ -53,11 +53,9 @@ function TicketList(props) {
     currentData.sort((prev, next) => prev.price - next.price)
   } else if (fastest) {
     currentData.sort((prev, next) => {
-      const prevThere = prev.route[0].duration
-      const nextThere = next.route[0].duration
-      const prevBack = prev.route[1].duration
-      const nextBack = next.route[1].duration
-      return prevThere - nextThere || prevBack - nextBack
+      const prevDuration = prev.route[0].duration + prev.route[1].duration
+      const nextDuration = next.route[0].duration + next.route[1].duration
+      return prevDuration - nextDuration
     })
   } else if (optimal) {
     currentData.sort((prev, next) => {
