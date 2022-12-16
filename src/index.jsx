@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import thunk from 'redux-thunk'
@@ -9,11 +10,14 @@ import App from './components/App/App'
 
 import './index.scss'
 
-const store = createStore(
-  reducer,
-  // eslint-disable-next-line max-len, comma-dangle
-  compose(applyMiddleware(thunk), window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
-)
+const a = typeof window === 'object'
+const b = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
+
+const composeEnhancers = a && b ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({}) : compose
+
+const enhancer = composeEnhancers(applyMiddleware(thunk))
+
+const store = createStore(reducer, enhancer)
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 const element = (
