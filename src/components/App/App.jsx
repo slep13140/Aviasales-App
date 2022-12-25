@@ -2,9 +2,9 @@ import React, { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 
 import mainLogo from '../../image/Logo.png'
-import TransferCount from '../TransferCount/TransferCount'
-import TicketList from '../TicketList/TicketList'
-import { ticketLoad } from '../../actions'
+import TransferCount from '../TransferCount'
+import TicketList from '../TicketList'
+import { ticketLoad } from '../../store/actions'
 
 import styles from './App.module.scss'
 

@@ -1,10 +1,11 @@
 import React from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
+import { Progress, Space } from 'antd'
 
-import Ticket from '../Ticket/Ticket'
-import SortingSelection from '../SortingSelection/SortingSelection'
-import * as actions from '../../actions'
+import Ticket from '../Ticket'
+import SortingSelection from '../SortingSelection'
+import * as actions from '../../store/actions'
 
 import styles from './TicketList.module.scss'
 
@@ -13,6 +14,10 @@ function TicketList(props) {
   const { showMore, load, optimal } = props
   const { transfNo, lowPrice, fastest } = props
   const { transfOne, transfTwo, transfThree } = props
+  let percent = ticketData.length / 100
+  if (ticketData.length > 9500) {
+    percent = 100
+  }
 
   const countTicketOnVisible = countTicket
   let elements = null
@@ -43,7 +48,7 @@ function TicketList(props) {
     currentData = ticketData.filter((item) => {
       const routeThere = item.route[0].stops.length
       const routeBack = item.route[1].stops.length
-      if (currentFilters.includes(routeThere || routeBack)) {
+      if (currentFilters.includes(routeThere) && currentFilters.includes(routeBack)) {
         return item
       }
       return false
@@ -53,9 +58,8 @@ function TicketList(props) {
     currentData.sort((prev, next) => prev.price - next.price)
   } else if (fastest) {
     currentData.sort((prev, next) => {
-      const prevDuration = prev.route[0].duration + prev.route[1].duration
-      const nextDuration = next.route[0].duration + next.route[1].duration
-      return prevDuration - nextDuration
+      const prevDuration = prev.route[0].duration - next.route[0].duration
+      return prevDuration
     })
   } else if (optimal) {
     currentData.sort((prev, next) => {
@@ -87,7 +91,18 @@ function TicketList(props) {
   return (
     <div className={styles.list}>
       <SortingSelection />
-      <div className={loadCheck}>Loading please wait...</div>
+      <Space className={loadCheck} wrap>
+        <Progress
+          percent={percent}
+          style={{
+            width: 500,
+          }}
+          strokeColor={{
+            '0%': '#108ee9',
+            '100%': '#87d068',
+          }}
+        />
+      </Space>
       <ul>{elements}</ul>
       <button type="button" aria-label="Показать еще 5 билетов!" className={buttonClass} onClick={showMore}>
         Показать еще 5 билетов!
