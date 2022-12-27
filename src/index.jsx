@@ -6,7 +6,7 @@ import { createStore, compose, applyMiddleware } from 'redux'
 import { Provider } from 'react-redux'
 
 import reducer from './store/reducer'
-import App from './components/App'
+import { App } from './components/App'
 
 import './index.scss'
 

@@ -1,3 +1,1 @@
-import TransferCount from './TransferCount'
-
-export default TransferCount
+export { default as TransferCount } from './TransferCount'

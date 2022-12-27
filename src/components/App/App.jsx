@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 
-import mainLogo from '../../image/Logo.png'
-import TransferCount from '../TransferCount'
-import TicketList from '../TicketList'
+import { TicketList } from '../TicketList'
+import { TransferCount } from '../TransferCount'
 import { ticketLoad } from '../../store/actions'
+import mainLogo from '../../image/Logo.png'
 
 import styles from './App.module.scss'
 

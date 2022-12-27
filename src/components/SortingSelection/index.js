@@ -1,3 +1,1 @@
-import SortingSelection from './SortingSelection'
-
-export default SortingSelection
+export { default as SortingSelection } from './SortingSelection'

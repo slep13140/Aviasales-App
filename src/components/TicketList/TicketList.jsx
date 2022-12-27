@@ -3,8 +3,8 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { Progress, Space } from 'antd'
 
-import Ticket from '../Ticket'
-import SortingSelection from '../SortingSelection'
+import { Ticket } from '../Ticket'
+import { SortingSelection } from '../SortingSelection'
 import * as actions from '../../store/actions'
 
 import styles from './TicketList.module.scss'
